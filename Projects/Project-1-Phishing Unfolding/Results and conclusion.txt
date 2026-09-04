@@ -1,0 +1,51 @@
+
+# Investigation Results
+
+	Scenario
+	
+		Alert Types: Execution - Phishing - Process
+		Classified Alerts: 35
+		True Positives: 16
+		False Positives: 20 
+		
+	Incident diving - Simplified Cyber Kill chain(From the SOC point of view):
+	
+		- Delivery: Spear Phishing (Malicious ZIP sent to the CEO)
+		- Exploitation: Disguised link triggers a script via MS Windows native PowerShell 
+		- Installation: Reverse shell ( a malicious powercat.ps1 file to perform C2 actions via ngrok)
+		- Actions on objective: 
+			* Reconnaissance performed using whoami & systeminfo spotted in the logs
+			* Data Collection: Financial share mapped & copied
+			* Data Exfiltration: Data smuggled out over DNS pipe
+
+
+		
+	Phishing Type: WHALING (CEO Targeted)
+		Host: win-3450  ·  User: michael.ascot (CEO)  ·  PID 3728 (PowerShell) links every stage — end to end, in under an hour.
+	
+# Experience Learned
+
+	- Alert prioritisation (sort by severity, not by arrival):
+		I mostly worked the queue in the order alerts appeared, despite they were labeled by severity. Considering Higher severity alerts first can hugely improve efficiency. 
+	- Search wide, then narrow :
+		My first Splunk search missed the reverse shell because I restricted the time scope too much. Widening it first, and then filter by narrowing while progressing is a better practice.
+	- Use the playbook as reference : 
+		I almost missed some important informations for proper classification allthough  they were in the documentation. I mistakenly classified some of the False Positive alerts as True.
+	- Anybody can be exposed: Some people might thing such thing could never happen to them but the reality is that attackers are getting smatter. Thus, we need to ensure that every one do is 
+	 due diligence by learning the good practices to train our cybersecurity awerness.
+	
+
+# Skills showed & aquired
+	- Alert prioritisation and classification
+	- Detailed Technical reporting
+	- intrusion vectors identification 
+	- Alert escalation 
+	- Cyber kill chain identification
+	- SIEM hands on: 
+		* Splunk
+		* ElasticSearch
+		* Microsoft Sentinel
+		* TryDetectThis 2.0 - tryhackme.cloud
+
+		
+		
