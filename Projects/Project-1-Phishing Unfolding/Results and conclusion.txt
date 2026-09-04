@@ -47,5 +47,8 @@
 		* Microsoft Sentinel
 		* TryDetectThis 2.0 - tryhackme.cloud
 
-		
+# Conclusion 
+	
+	Security breach prevented : all the True Positive alerts have been properly handled
+	
 		
